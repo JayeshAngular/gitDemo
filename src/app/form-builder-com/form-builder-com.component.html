@@ -1,0 +1,26 @@
+<div class="container">
+    <form [formGroup]="UserRegForm" (ngSubmit)="save()">
+        <label for="id1" class="form-label">First Name</label>
+        <input type="text" class="form-control" formControlName="FirstName">
+        <div *ngIf="UserRegForm.get('FirstName')?.touched || UserRegForm.get('FirstName')?.dirty">
+            <div class="invalid-feedback d-block" *ngIf="UserRegForm.get('FirstName')?.errors?.['required']">
+                it is required field
+            </div>
+            <div class="invalid-feedback d-block" *ngIf="UserRegForm.get('FirstName')?.errors?.['pattern']">
+                Please Enter Proper Data
+            </div>
+        </div>
+        <label for="id1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" formControlName="LastName"> 
+        <div *ngIf="UserRegForm.get('LastName')?.touched || UserRegForm.get('LastName')?.dirty">
+            <div *ngIf="UserRegForm.get('LastName')?.errors?.['LastNameInvalid']" >
+                custome Validator works
+            </div>
+        </div>
+        
+        <button [disabled]="UserRegForm.invalid" class="btn btn-info m-2">Submit</button> 
+     <button  class="btn btn-danger m-2" (click)="setvalue()">setvalue</button> 
+        <button  class="btn btn-dark m-2" (click)="patchvalue()">PatchValue</button> 
+        <button  class="btn btn-primary m-2" (click)="reset()">Reset</button>
+    </form>
+</div>

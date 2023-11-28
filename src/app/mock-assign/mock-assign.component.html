@@ -1,0 +1,24 @@
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Sr.no</th>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="employeeDisplay">
+                <tr *ngFor="let data of employeeData; let i = index">
+                    <td> {{i+1}} </td>
+                    <td> {{data.eFirstName}} </td>
+                    <td> {{data.eDesignation}} </td>
+                    <td> {{data.eSalary}} </td>
+                </tr>
+            </ng-container>
+
+        </tbody>
+    </table>
+    <button class="btn btn-info" (click)="showData()" > Show Data</button>
+</div>

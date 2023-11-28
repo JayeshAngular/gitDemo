@@ -1,0 +1,82 @@
+<!-- <div class="container border mt-3 p-3">
+    <form #userInfoForm = "ngForm" (ngSubmit)="save(userInfoForm)">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="id1" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="id1" name="fName" [(ngModel)]="userForm.firstName" #fName = "ngModel" required minlength="6" maxlength="6">
+                <ng-container *ngIf="fName.touched" >
+                    <div class="invalid-feedback d-block" *ngIf="fName.errors?.['required']">
+                        it is required field
+                    </div>
+                    <div class="invalid-feedback d-block" *ngIf="fName.errors?.['minlength']">
+                        minimun 6 alphabets required
+                    </div>
+                </ng-container>
+            </div>
+            <div class="col-md-4">
+                <label for="id2" class="form-label">Last Name</label>
+                <input type="text" class="form-control" name="lName" id="id2" [(ngModel)]="userForm.lastName">
+            </div>
+            <div class="col-md-4">
+                <label for="id3" class="form-label">Mobile No</label>
+                <input type="text" class="form-control" id="id3" name="mobileNo" [(ngModel)]="userForm.mobileNo">
+            </div>
+            <div class="col-md-4">
+                <label for="id4" class="form-label">Email Address</label>
+                <input type="text" class="form-control" id="id4" name="email" [(ngModel)]="userForm.email">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-info m-2">Submit</button>
+    </form>
+</div>
+
+<p>data : {{userInfoForm.value | json}} </p>
+ -->
+<div class="container w-25 border mt-3 p-2">
+    <form class="p-2" #productForm = "ngForm" (ngSubmit)="save(productForm)" >
+        <div class="col">   
+            <div class="col-md-12 mb-2">
+                <label for="category" class="form-label ms-2">Product Category</label>
+                <input type="text" class="form-control" name="pCategory" #pCategory = "ngModel" [(ngModel)]="productData.pCategory" required>
+                <ng-container *ngIf="pCategory.touched" >
+                    <div class="invalid-feedback d-block" *ngIf="pCategory.errors?.['required']">
+                        it is required field
+                    </div>
+                </ng-container>
+            </div>
+            <div class="col-md-12 mb-2">
+                <label for="category" class="form-label ms-2">Product Name</label>
+                <input type="text" class="form-control" name="pName" #pName = "ngModel" [(ngModel)]="productData.pName" required>
+                <ng-container *ngIf="pName.touched" >
+                    <div class="invalid-feedback d-block" *ngIf="pName.errors?.['required']">
+                        it is required field
+                    </div>
+                </ng-container>
+            </div>
+            <div class="col-md-12 mb-2">
+                <label for="category" class="form-label ms-2">Product price</label>
+                <input type="text" class="form-control" name="pPrice" 
+                #productPrice = "ngModel" [(ngModel)]="productData.pPrice" pattern="[0-9\s]{1,6}">
+                    <ng-container *ngIf="productPrice.errors?.['pattern']">
+                        <div class="invalid-feedback d-block">
+                            Only number data accepted
+                        </div>
+                </ng-container>
+            </div>
+            <div class="col-md-12 mb-2">
+                <label for="category" class="form-label ms-2">Product Quantity</label>
+                <input type="text" class="form-control" name="pQuantity"  #productQuantity = "ngModel" [(ngModel)]="productData.pQuantity" pattern="[0-9\s]{1,2}">
+                <ng-container *ngIf="productQuantity.errors?.['pattern']">
+                    <div class="invalid-feedback d-block">
+                        Enter Correct Quantity Between 1-10
+                    </div>
+            </ng-container>
+            </div>
+            <button class="btn btn-info" type="submit">Get Data</button>
+            <button class="btn btn-dark m-2" type="button" (click)="reset()">Reset</button>
+            <div class="col-md-12 mt-3">
+                <h6>Total Price : {{totalPrice}} </h6>
+            </div>
+        </div>
+    </form>
+</div>

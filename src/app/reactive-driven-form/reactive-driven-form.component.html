@@ -1,0 +1,29 @@
+<div class="container border mt-3 p-3">
+    <form [formGroup]="userForm" (ngSubmit)="save()">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="id1" class="form-label">First Name</label>
+                <input type="text" class="form-control" formControlName ="firstname" id="id1" name="fName">
+            </div>
+            <div class="col-md-4">
+                <label for="id2" class="form-label">Last Name</label>
+                <input type="text" class="form-control" formControlName="lastname" name="lName" id="id2">
+            </div>
+            <div class="col-md-4">
+                <label for="id3" class="form-label">Mobile No</label>
+                <input type="text" class="form-control" formControlName="mobileno" id="id3" name="mobileNo">
+            </div>
+            <div class="col-md-4">
+                <label for="id4" class="form-label">Email Address</label>
+                <input type="text" class="form-control" formControlName="email" id="id4" name="email">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-info m-2">Submit</button>
+    </form>
+</div>
+<p> Form Value :  {{userForm.value | json}} </p>
+<p> Form Touched :  {{userForm.touched}} </p>
+<p> Form Untouched :  {{userForm.untouched}} </p>
+<p> Form Dirty :  {{userForm.dirty}} </p>
+<p> Form Pristine :  {{userForm.pristine}} </p>
+<p> Form Errors :  {{userForm.errors | json}} </p>
